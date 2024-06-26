@@ -7,7 +7,8 @@ import 'package:to_do/core/utils/app_colors.dart';
 import 'package:to_do/generated/l10n.dart';
 
 class NoteApp extends StatelessWidget {
-  const NoteApp({super.key});
+  const NoteApp({super.key, this.isFirstRun});
+  final bool? isFirstRun;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class NoteApp extends StatelessWidget {
           primaryColor: AppColors.primaryColor,
           useMaterial3: true,
         ),
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: isFirstRun! ? Routes.onBoardingScreen : Routes.homePage,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
