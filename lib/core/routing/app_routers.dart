@@ -9,15 +9,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text(
-                'No route defined for ${settings.name}',
-              ),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }
