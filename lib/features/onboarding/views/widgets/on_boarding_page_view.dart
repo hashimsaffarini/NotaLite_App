@@ -3,11 +3,13 @@ import 'package:to_do/core/utils/app_images.dart';
 import 'package:to_do/features/onboarding/views/widgets/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
+  const OnBoardingPageView({super.key, required this.controller});
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: controller,
       children: const [
         PageViewItem(
           imageUrl: Assets.imagesBoarding1,

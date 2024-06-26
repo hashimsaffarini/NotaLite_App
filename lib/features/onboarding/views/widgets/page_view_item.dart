@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do/core/theming/styles.dart';
-import 'package:to_do/features/onboarding/views/widgets/onboarding_app_bar.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -16,38 +15,31 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const OnboardingScreenAppBar(),
-        Expanded(
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  imageUrl,
-                ),
-                SizedBox(height: 70.h),
-                Text(
-                  title,
-                  style: TextStyles.font24BlackRegular.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 18.w),
-                  child: Text(
-                    description,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.font14BlackRegular,
-                  ),
-                )
-              ],
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            imageUrl,
+          ),
+          SizedBox(height: 70.h),
+          Text(
+            title,
+            style: TextStyles.font24BlackRegular.copyWith(
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-      ],
+          SizedBox(height: 8.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 18.w),
+            child: Text(
+              description,
+              textAlign: TextAlign.center,
+              style: TextStyles.font14BlackRegular,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
