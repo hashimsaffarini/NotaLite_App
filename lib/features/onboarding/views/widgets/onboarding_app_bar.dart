@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do/core/routing/routes.dart';
 import 'package:to_do/core/theming/styles.dart';
 import 'package:to_do/core/utils/app_images.dart';
 
@@ -32,7 +33,9 @@ class OnboardingScreenAppBar extends StatelessWidget {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed(Routes.homePage);
+                },
                 child: Text(
                   'Skip',
                   style: TextStyles.font20BlackRegular.copyWith(

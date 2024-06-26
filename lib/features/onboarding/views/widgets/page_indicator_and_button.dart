@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:to_do/core/routing/routes.dart';
 import 'package:to_do/core/utils/app_colors.dart';
 import 'package:to_do/core/widgets/custom_cuircle_button.dart';
 
@@ -40,7 +41,18 @@ class PageIndicatorAndButton extends StatelessWidget {
             },
           ),
           const Spacer(),
-          const CustomCircleButton(),
+          CustomCircleButton(
+            onPressed: () {
+              if (currentPage == 1) {
+                Navigator.of(context).pushReplacementNamed(Routes.homePage);
+              } else {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.easeInOut,
+                );
+              }
+            },
+          ),
         ],
       ),
     );
