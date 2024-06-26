@@ -1,4 +1,4 @@
-# ToDo App✏️
+# NotaLite App✏️
 
 ## App Thumbnail🎨
 
