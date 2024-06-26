@@ -28,18 +28,19 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_launcher_icons: ^0.13.1
+  flutter_localizations:
+    sdk: flutter
   flutter_native_splash: ^2.4.0
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  flutter_localizations:
-    sdk: flutter
 
 dev_dependencies:
   build_runner: ^2.4.11
@@ -70,11 +71,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: PT Sans
+      fonts:
+        - asset: assets/fonts/PTSans-Regular.ttf
+        - asset: assets/fonts/PTSans-Italic.ttf
+        - asset: assets/fonts/PTSans-BoldItalic.ttf
+          weight: 700
+        - asset: assets/fonts/PTSans-Bold.ttf
+          weight: 800
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

@@ -26,6 +26,7 @@ class NoteApp extends StatelessWidget {
         title: 'Note App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          fontFamily: 'PT Sans',
           scaffoldBackgroundColor: Colors.white,
           primaryColor: AppColors.primaryColor,
           useMaterial3: true,
