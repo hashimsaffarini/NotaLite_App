@@ -10,13 +10,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomHomeAppBar(),
-            SizedBox(height: 36.h),
-            const HomePageBody(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomHomeAppBar(),
+              SizedBox(height: 36.h),
+              const HomePageBody(),
+            ],
+          ),
         ),
       ),
     );
