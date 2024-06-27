@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:to_do/core/theming/styles.dart';
 
@@ -7,19 +8,28 @@ class CustomHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          'Good Morning!',
-          style: TextStyles.font24BlackRegular.copyWith(
-            fontWeight: FontWeight.bold,
+    DateTime now = DateTime.now();
+    String greeting = now.hour < 12 ? 'Good Morning!' : 'Good Evening!';
+    return Padding(
+      padding: const EdgeInsets.only(left: 36, top: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            greeting,
+            style: TextStyles.font24BlackRegular.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        Text(
-          DateFormat('EEEE, MMMM d, y').format(DateTime.now()),
-          style: const TextStyle(fontSize: 20),
-        )
-      ],
+          SizedBox(height: 6.h),
+          Text(
+            DateFormat('EEEE, MMMM d, y').format(DateTime.now()),
+            style: TextStyles.font20BlackRegular.copyWith(
+              color: Colors.grey[600],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
