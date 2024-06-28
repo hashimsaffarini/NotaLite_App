@@ -27,6 +27,7 @@ class NoteApp extends StatelessWidget {
         title: 'Note App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          splashColor: Colors.transparent,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,
             elevation: 0,
@@ -36,7 +37,7 @@ class NoteApp extends StatelessWidget {
           primaryColor: AppColors.primaryColor,
           useMaterial3: true,
         ),
-        initialRoute: isFirstRun! ? Routes.onBoardingScreen : Routes.homePage,
+        initialRoute: isFirstRun! ? Routes.onBoardingScreen : Routes.navBar,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
