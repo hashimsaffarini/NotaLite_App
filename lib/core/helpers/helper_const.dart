@@ -1,1 +1,1 @@
-
+const String kNotesBox = 'notes';
