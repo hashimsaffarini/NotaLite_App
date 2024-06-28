@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:to_do/core/theming/styles.dart';
 import 'package:to_do/core/utils/app_colors.dart';
+
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
 
@@ -38,20 +41,22 @@ class NoteItem extends StatelessWidget {
                   style: TextStyles.font14BlackRegular,
                 ),
                 const Spacer(),
-                IconButton(
-                  iconSize: 20,
-                  icon: const Icon(Icons.favorite_border),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  iconSize: 20,
-                  style: ButtonStyle(
-                    padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-                      const EdgeInsets.all(0),
-                    ),
+                InkWell(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.favorite_border,
+                    size: 22,
                   ),
-                  icon: const Icon(Icons.delete),
-                  onPressed: () {},
+                ),
+                SizedBox(
+                  width: 8.w,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: const Icon(
+                    Iconsax.trash,
+                    size: 22,
+                  ),
                 ),
               ],
             ),
