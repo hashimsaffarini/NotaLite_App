@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:to_do/core/utils/app_images.dart';
 import 'package:to_do/core/widgets/custom_button.dart';
 import 'package:to_do/core/widgets/succsess_dialog.dart';
@@ -65,13 +66,13 @@ class AddPageBody extends StatelessWidget {
                   color: context.read<AddNoteCubit>().color.value,
                   date:
                       'Date: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                  time: 'Time: ${DateTime.now().hour}:${DateTime.now().minute}',
+                  time: 'Time: ${DateFormat('hh:mm a').format(DateTime.now())}',
                 );
                 context.read<AddNoteCubit>().addNote(note);
               }
             },
             buttonRadius: 48,
-            buttonText: 'Save Note',
+            buttonText: 'Add Note',
             verticalPadding: 16,
             horizontalPadding: 16,
           ),

@@ -16,12 +16,12 @@ class AddNoteCubit extends Cubit<AddNoteState> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dueDateController = TextEditingController();
   void addNote(NoteModel note) async {
-    // note.color = color.value;
     emit(AddNoteLoading());
     try {
       var notesBox = Hive.box<NoteModel>(kNotesBox);
       await notesBox.add(note);
       clearFields();
+
       emit(AddNoteSuccess());
     } catch (e) {
       emit(AddNoteFailure(e.toString()));
@@ -32,6 +32,5 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     titleController.clear();
     descriptionController.clear();
     dueDateController.clear();
-    color = AppColors.noteBackGround;
   }
 }

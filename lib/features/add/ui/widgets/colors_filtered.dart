@@ -68,9 +68,11 @@ class ColorItem extends StatelessWidget {
   }
 }
 
-List<Color> colors = const [
+List<Color> colors = [
   AppColors.noteBackGround,
-  Color(0xffE45555),
-  Color(0xffF4BF4F),
-  Color(0xffC9F44F),
+  const Color(0xffE45555),
+  const Color(0xffF4BF4F),
+  const Color(0xffC9F44F),
+  const Color(0xff4FF4C9),
+  AppColors.primaryColor,
 ];

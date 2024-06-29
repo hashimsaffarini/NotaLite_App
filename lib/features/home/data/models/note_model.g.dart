@@ -23,13 +23,14 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       dueDate: fields[5] as String,
       date: fields[2] as String,
       time: fields[3] as String,
+      isFavorite: (fields[6] as bool?) ?? false,
     );
   }
 
   @override
   void write(BinaryWriter writer, NoteModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       ..writeByte(4)
       ..write(obj.color)
       ..writeByte(5)
-      ..write(obj.dueDate);
+      ..write(obj.dueDate)
+      ..writeByte(6)
+      ..write(obj.isFavorite);
   }
 
   @override

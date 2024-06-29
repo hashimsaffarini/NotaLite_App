@@ -21,6 +21,9 @@ class NoteModel extends HiveObject {
   @HiveField(5)
   String dueDate;
 
+  @HiveField(6)
+  bool isFavorite;
+
   NoteModel({
     required this.title,
     required this.description,
@@ -28,5 +31,6 @@ class NoteModel extends HiveObject {
     required this.dueDate,
     required this.date,
     required this.time,
+    this.isFavorite = false,
   });
 }
