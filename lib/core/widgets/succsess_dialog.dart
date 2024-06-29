@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class SuccessDialog extends StatefulWidget {
   const SuccessDialog({super.key});
   @override

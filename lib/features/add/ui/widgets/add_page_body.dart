@@ -18,6 +18,7 @@ class AddPageBody extends StatelessWidget {
     return BlocListener<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
         if (state is AddNoteSuccess) {
+          FocusScope.of(context).requestFocus(FocusNode());
           showDialog(
             context: context,
             builder: (BuildContext context) {
