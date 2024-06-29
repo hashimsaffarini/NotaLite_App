@@ -53,7 +53,7 @@ class AddPageBody extends StatelessWidget {
               sendNoteToAdd(context);
             },
             buttonRadius: 48,
-            buttonText: 'Add Note',
+            buttonText: 'Add Nota',
             verticalPadding: 16,
             horizontalPadding: 16,
           ),
