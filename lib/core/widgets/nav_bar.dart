@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do/core/utils/app_images.dart';
 import 'package:to_do/features/add/ui/pages/add_note_page.dart';
-import 'package:to_do/features/home/logic/add_note/add_note_cubit.dart';
+import 'package:to_do/features/add/logic/add_note/add_note_cubit.dart';
+import 'package:to_do/features/home/logic/notes/notes_cubit.dart';
 import 'package:to_do/features/home/ui/pages/home_page.dart';
 import 'package:to_do/features/priority/ui/pages/priority_task_page.dart';
 
@@ -18,7 +19,10 @@ class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
 
   List<Widget> list = [
-    const HomePage(),
+    BlocProvider(
+      create: (context) => NotesCubit()..fetchAllNotes(),
+      child: const HomePage(),
+    ),
     BlocProvider(
       create: (context) => AddNoteCubit(),
       child: const AddNotePage(),

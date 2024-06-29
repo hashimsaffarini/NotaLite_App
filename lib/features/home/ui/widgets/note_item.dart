@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:to_do/core/theming/styles.dart';
 import 'package:to_do/core/utils/app_colors.dart';
+import 'package:to_do/features/home/data/models/note_model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +15,7 @@ class NoteItem extends StatelessWidget {
         maxWidth: MediaQuery.of(context).size.width * 0.9,
       ),
       decoration: BoxDecoration(
-        color: AppColors.noteBackGround,
+        color: Color(note.color),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
@@ -23,7 +24,7 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Note Title: The user can do with \n',
+              '${note.title} \n',
               style: TextStyles.font14BlackRegular.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -31,13 +32,13 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             Text(
-              'Date: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+              note.date,
               style: TextStyles.font14BlackRegular,
             ),
             Row(
               children: [
                 Text(
-                  'Time: ${DateTime.now().hour}:${DateTime.now().minute}',
+                  note.time,
                   style: TextStyles.font14BlackRegular,
                 ),
                 const Spacer(),

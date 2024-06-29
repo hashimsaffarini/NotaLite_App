@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do/core/utils/app_colors.dart';
-import 'package:to_do/features/home/logic/add_note/add_note_cubit.dart';
+import 'package:to_do/features/add/logic/add_note/add_note_cubit.dart';
 
 class ColorsFiltered extends StatefulWidget {
   const ColorsFiltered({super.key});
@@ -69,6 +69,7 @@ class ColorItem extends StatelessWidget {
 }
 
 List<Color> colors = const [
+  AppColors.noteBackGround,
   Color(0xffE45555),
   Color(0xffF4BF4F),
   Color(0xffC9F44F),

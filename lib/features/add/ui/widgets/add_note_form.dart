@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do/core/theming/styles.dart';
 import 'package:to_do/core/utils/app_colors.dart';
+import 'package:to_do/features/add/logic/add_note/add_note_cubit.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -11,9 +13,6 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _dueDateController = TextEditingController();
   Future<void> _selectDueDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -36,7 +35,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
     if (pickedDate != null) {
       setState(() {
-        _dueDateController.text =
+        context.read<AddNoteCubit>().dueDateController.text =
             '${pickedDate.day}/${pickedDate.month}/${pickedDate.year}';
       });
     }
@@ -45,12 +44,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: context.read<AddNoteCubit>().formKey,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 14.0.w),
         child: Column(
           children: [
             TextFormField(
-              controller: _titleController,
+              controller: context.read<AddNoteCubit>().titleController,
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a Title';
@@ -87,7 +87,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ),
             SizedBox(height: 16.0.h),
             TextFormField(
-              controller: _descriptionController,
+              controller: context.read<AddNoteCubit>().descriptionController,
               cursorColor: AppColors.primaryColor,
               style: TextStyles.font14BlackRegular.copyWith(
                 color: Colors.black,
@@ -119,7 +119,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ),
             SizedBox(height: 16.h),
             TextFormField(
-              controller: _dueDateController,
+              controller: context.read<AddNoteCubit>().dueDateController,
               cursorColor: AppColors.primaryColor,
               readOnly: true,
               onTap: () => _selectDueDate(context),

@@ -26,7 +26,7 @@ class NoteModel extends HiveObject {
     required this.description,
     required this.color,
     required this.dueDate,
-  })  : date =
-            'Date: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-        time = 'Time: ${DateTime.now().hour}:${DateTime.now().minute}';
+    required this.date,
+    required this.time,
+  });
 }
