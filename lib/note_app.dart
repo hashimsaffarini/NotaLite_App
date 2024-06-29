@@ -27,6 +27,11 @@ class NoteApp extends StatelessWidget {
         title: 'Note App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          textSelectionTheme: TextSelectionThemeData(
+            cursorColor: AppColors.primaryColor,
+            selectionColor: AppColors.primaryColor.withOpacity(0.5),
+            selectionHandleColor: AppColors.primaryColor,
+          ),
           splashColor: Colors.transparent,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,

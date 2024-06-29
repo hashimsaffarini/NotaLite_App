@@ -5,4 +5,5 @@ class AppColors {
   static const Color secondaryBlack = Color(0xff414141);
   static const Color textColor = Color(0xff65676B);
   static const Color noteBackGround = Color(0xffEAEAEA);
+  static const Color grey = Color(0xffB9B9B9);
 }

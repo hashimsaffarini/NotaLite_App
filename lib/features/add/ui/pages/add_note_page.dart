@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do/features/add/ui/widgets/add_page_app_bar.dart';
+import 'package:to_do/features/add/ui/widgets/add_page_body.dart';
 
 class AddNotePage extends StatelessWidget {
   const AddNotePage({super.key});
@@ -6,11 +9,17 @@ class AddNotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add Note'),
-      ),
-      body: const Center(
-        child: Text('Add Note Page'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const AddPageAppBar(),
+              SizedBox(height: 24.h),
+              const AddPageBody(),
+            ],
+          ),
+        ),
       ),
     );
   }
