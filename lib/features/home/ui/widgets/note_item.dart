@@ -29,23 +29,37 @@ class NoteItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '${note.title} \n',
-                style: TextStyles.font14BlackRegular.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: AppColors.textColor,
+              Align(
+                alignment: isArabic(note.title)
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
+                child: Text(
+                  '${note.title} \n',
+                  style: TextStyles.font14BlackRegular.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: AppColors.textColor,
+                  ),
                 ),
               ),
-              Text(
-                note.date,
-                style: TextStyles.font14BlackRegular,
+              Directionality(
+                textDirection:
+                    isArabic(note.date) ? TextDirection.rtl : TextDirection.ltr,
+                child: Text(
+                  note.date,
+                  style: TextStyles.font14BlackRegular,
+                ),
               ),
               Row(
                 children: [
-                  Text(
-                    note.time,
-                    style: TextStyles.font14BlackRegular,
+                  Directionality(
+                    textDirection: isArabic(note.time)
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
+                    child: Text(
+                      note.time,
+                      style: TextStyles.font14BlackRegular,
+                    ),
                   ),
                   const Spacer(),
                   InkWell(
@@ -78,5 +92,10 @@ class NoteItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  bool isArabic(String text) {
+    final arabicRegExp = RegExp(r'[\u0600-\u06FF]');
+    return arabicRegExp.hasMatch(text);
   }
 }

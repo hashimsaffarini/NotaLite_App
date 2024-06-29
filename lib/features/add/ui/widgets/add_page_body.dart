@@ -49,27 +49,7 @@ class AddPageBody extends StatelessWidget {
           SizedBox(height: 20.h),
           CustomButton(
             onPressed: () {
-              if (context
-                  .read<AddNoteCubit>()
-                  .formKey
-                  .currentState!
-                  .validate()) {
-                final title = context.read<AddNoteCubit>().titleController.text;
-                final description =
-                    context.read<AddNoteCubit>().descriptionController.text;
-                final dueDate =
-                    context.read<AddNoteCubit>().dueDateController.text;
-                final note = NoteModel(
-                  title: title,
-                  description: description,
-                  dueDate: dueDate,
-                  color: context.read<AddNoteCubit>().color.value,
-                  date:
-                      'Date: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                  time: 'Time: ${DateFormat('hh:mm a').format(DateTime.now())}',
-                );
-                context.read<AddNoteCubit>().addNote(note);
-              }
+              sendNoteToAdd(context);
             },
             buttonRadius: 48,
             buttonText: 'Add Note',
@@ -79,5 +59,24 @@ class AddPageBody extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void sendNoteToAdd(BuildContext context) {
+    if (context.read<AddNoteCubit>().formKey.currentState!.validate()) {
+      final title = context.read<AddNoteCubit>().titleController.text;
+      final description =
+          context.read<AddNoteCubit>().descriptionController.text;
+      final dueDate = context.read<AddNoteCubit>().dueDateController.text;
+      final note = NoteModel(
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        color: context.read<AddNoteCubit>().color.value,
+        date:
+            'Date: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+        time: 'Time: ${DateFormat('hh:mm a').format(DateTime.now())}',
+      );
+      context.read<AddNoteCubit>().addNote(note);
+    }
   }
 }
