@@ -21,6 +21,14 @@ class Assets {
   /// assets/images/boarding1.png
   static const String imagesBoarding1 = "assets/images/boarding1.png";
 
+  /// Assets for imagesEmpty
+  /// assets/images/empty.svg
+  static const String imagesEmpty = "assets/images/empty.svg";
+
+  /// Assets for imagesEmpty2
+  /// assets/images/empty2.png
+  static const String imagesEmpty2 = "assets/images/empty2.png";
+
   /// Assets for imagesHomeActive
   /// assets/images/home_active.svg
   static const String imagesHomeActive = "assets/images/home_active.svg";

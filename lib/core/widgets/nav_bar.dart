@@ -9,14 +9,29 @@ import 'package:to_do/features/home/ui/pages/home_page.dart';
 import 'package:to_do/features/priority/ui/pages/priority_task_page.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final int initialIndex;
+  static final GlobalKey<NavBarState> globalKey = GlobalKey<NavBarState>();
+
+  const NavBar({super.key, this.initialIndex = 0});
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NavBar> createState() => NavBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class NavBarState extends State<NavBar> {
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+  }
+
+  void updateIndex(int newIndex) {
+    setState(() {
+      _currentIndex = newIndex;
+    });
+  }
 
   List<Widget> list = [
     BlocProvider(
@@ -29,6 +44,7 @@ class _NavBarState extends State<NavBar> {
     ),
     const PriorityTaskPage(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

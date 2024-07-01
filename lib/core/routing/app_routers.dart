@@ -8,7 +8,11 @@ class AppRouter {
   static Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.navBar:
-        return MaterialPageRoute(builder: (_) => const NavBar());
+        return MaterialPageRoute(
+          builder: (_) => NavBar(
+            key: NavBar.globalKey,
+          ),
+        );
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
       case Routes.homePage:
